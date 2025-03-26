@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:semacs_app/NewDashboard.dart';
 import 'dashboard screen.dart';
+import 'fypScreens/fyp_dashboard.dart';
 // import 'package:line_icons/line_icons.dart';
 // import 'package:firebase_database/firebase_database.dart';
 
@@ -25,10 +26,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Smart Elderly Monitoring and Care System',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: const NewDashboard(),
+          theme: ThemeData(fontFamily: 'Urbanist'),
+          home: FYPDashboard(),
         );
       },
     );

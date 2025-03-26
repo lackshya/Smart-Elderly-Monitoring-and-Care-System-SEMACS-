@@ -11,6 +11,7 @@ var roomTemperature;
 var roomHumidity;
 var totalSleep;
 var emergencyNotif;
+var motionState;
 
 var timeHr;
 var timestamp;
@@ -102,6 +103,21 @@ void readData() {
       timeMonth = now.month.toString();
       timeYear = now.year.toString();
       print("Total Sleep Value Received: $totalSleep");
+    },
+  );
+
+  DatabaseReference motionStateObj =
+  FirebaseDatabase.instance.ref('motion_state');
+  motionStateObj.onValue.listen(
+        (DatabaseEvent event) {
+      motionState = event.snapshot.value;
+      timeHr = now.hour.toString();
+      timeMin = now.minute.toString();
+      timeDay = now.day.toString();
+      timeMonth = now.month.toString();
+      timeYear = now.year.toString();
+      print("Motion Value Received: $motionState");
+      print('Timestamp: $timeHr:$timeMin');
     },
   );
 }
